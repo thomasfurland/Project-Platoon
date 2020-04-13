@@ -25,5 +25,5 @@ Apr.11, 2020 First Zoom Meeting
 
 # Run
 ```bash
-python3 map_generater.py
+python3 map_gen.py
 ```

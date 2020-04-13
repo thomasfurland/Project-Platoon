@@ -3,7 +3,7 @@ import random
 def random_map(width, height):
     result = []
     for _ in range(height):
-        row = [random.randint(0, 3) for _ in range(width)]
+        row = [random.randrange(3) for _ in range(width)]
         result.append(row)
     return result
 
