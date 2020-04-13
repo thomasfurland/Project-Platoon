@@ -22,3 +22,8 @@ Apr.11, 2020 First Zoom Meeting
   * Create the Hex Map Generator in Python.
     * Fixed Size
     * Various Land and Sea Blocks
+
+# Run
+```bash
+python3 map_generater.py
+```
