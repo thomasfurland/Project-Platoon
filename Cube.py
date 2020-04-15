@@ -16,3 +16,10 @@ class Cube:
     def from_string(cls, x_y_z):
         x, y, z = x_y_z.split('_')
         return cls(int(x), int(y), int(z))
+
+if __name__ == '__main__':
+    x = {
+        Cube(1, 2, 3): 'object1',
+        Cube(1, 2, 4): 'object2'
+    }
+    print(Cube(1, 2, 3)) # => 'object1'
