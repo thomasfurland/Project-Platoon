@@ -1,5 +1,7 @@
 class Cube:
     def __init__(self, x, y, z):
+        if x + y + z != 0:
+            raise ValueError("x + y + z needs to equal 0")
         self.x = x
         self.y = y
         self.z = z
@@ -21,7 +23,7 @@ class Cube:
 
 if __name__ == '__main__':
     x = {
-        Cube(1, 2, 3): 'object1',
-        Cube(1, 2, 4): 'object2'
+        Cube(1, 2, -3): 'object1',
+        Cube(1, 3, -4): 'object2'
     }
-    print(x[Cube(1, 2, 3)]) # => 'object1'
+    print(x[Cube(1, 2, -3)]) # => 'object1'
