@@ -15,7 +15,7 @@ class Cube:
         ]
 
     def __hash__(self):
-        return hash((self.x, self.y, self.z))
+        return hash(f"{self.x}_{self.y}_{self.z}")
 
     def __eq__(self, other):
         if isinstance(other, Cube):
