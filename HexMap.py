@@ -4,7 +4,7 @@ class HexMap:
     def __init__(self, map_dict={}):
         for k in map_dict.keys():
             if not isinstance(k, Cube):
-                raise ValueError(f"HexMap only accepts Cube as key, bug got {k}")
+                raise ValueError(f"HexMap only accepts Cube object as key, but instead got {type(k)}")
         self.map = map_dict
    
     def __getitem__(self, key):
@@ -16,11 +16,11 @@ class HexMap:
     def generate(self, px, py, pz, nx, ny, nz):
         pass
     
-    def export(self):
+    def export_map(self):
         pass
     
     @classmethod
-    def import_map(cls, data):
+    def convert_map(cls, data):
         pass
 
     def cube_neighbours(self, cube):
@@ -35,4 +35,4 @@ class HexMap:
         return neighbours
 
 if __name__ == '__main__':
-    x = HexMap(map_dict={Cube(1, 0, -1): 10})
+    x = HexMap(map_dict={(1, 0, -1): 10})
