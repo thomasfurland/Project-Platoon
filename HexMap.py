@@ -48,7 +48,6 @@ if __name__ == '__main__':
     print(hex_map[Cube(0,-1,1)])
     print(hex_map[Cube(-1,0,1)])
     print(hex_map[Cube(-1,1,0)])
-    print(hex_map[Cube(-1,-1,-1)])
 
     print(len(hex_map.map))
     
