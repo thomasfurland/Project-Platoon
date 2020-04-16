@@ -4,6 +4,16 @@ class Cube:
         self.y = y
         self.z = z
 
+    def neighbours(self):
+        return [
+            Cube(self.x, self.y+1, self.z-1),
+            Cube(self.x+1, self.y, self.z-1),
+            Cube(self.x+1, self.y-1, self.z),
+            Cube(self.x, self.y-1, self.z+1),
+            Cube(self.x-1, self.y, self.z+1),
+            Cube(self.x-1, self.y+1, self.z),
+        ]
+
     def __hash__(self):
         return hash((self.x, self.y, self.z))
 
@@ -17,9 +27,12 @@ class Cube:
         x, y, z = x_y_z.split('_')
         return cls(int(x), int(y), int(z))
 
+    
+
 if __name__ == '__main__':
     x = {
         Cube(1, 2, 3): 'object1',
         Cube(1, 2, 4): 'object2'
     }
-    print(Cube(1, 2, 3)) # => 'object1'
+    print(x[Cube(1, 2, 3)]) # => 'object1'
+    print(Cube(1, 2, 3).neighbours())
