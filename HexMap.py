@@ -23,16 +23,17 @@ class HexMap:
     def convert_map(cls, data):
         pass
 
-    def cube_neighbours(self, cube):
-        neighbours = [
-            Cube(cube.x, cube.y+1, cube.z-1),
-            Cube(cube.x+1, cube.y, cube.z-1),                    
-            Cube(cube.x+1, cube.y-1, cube.z),
-            Cube(cube.x, cube.y-1, cube.z+1),
-            Cube(cube.x-1, cube.y, cube.z+1),                   
-            Cube(cube.x-1, cube.y+1, cube.z)
-        ]
-        return neighbours
+    def cube_neighbour(self, cube):
+        xOffset = [-1,0,1]
+        yOffset = [-1,0,1]
+        neighbors = []
+        for i in xOffset:
+            for j in yOffset:
+                if not(i == 0 and j == 0):
+                    k = -(i+j)
+                    if k**2 <= 1:
+                        neighbors.append(Cube(cube.x+i,cube.y+j,cube.z+k))
+        return neighbors
 
 if __name__ == '__main__':
     x = HexMap(map_dict={(1, 0, -1): 10})
