@@ -1,8 +1,11 @@
 from Cube import Cube 
 
 class HexMap:
-    def __init__(self):
-        self.map = {} 
+    def __init__(self, map_dict={}):
+        for k in map_dict.keys():
+            if not isinstance(k, Cube):
+                raise ValueError(f"HexMap only accepts Cube as key, bug got {k}")
+        self.map = map_dict
    
     def __getitem__(self, key):
         return self.map[key]
@@ -32,25 +35,4 @@ class HexMap:
         return neighbours
 
 if __name__ == '__main__':
-    hex_map = HexMap()
-    origin_cube = Cube(0,0,0)
-    hex_map[origin_cube] = {"player":False, "tile":"grass"}
-    count = 0
-    for cube in hex_map.cube_neighbour(origin_cube):
-        hex_map[cube] = {"player":False, "tile": "water","count": count}
-        print(hex_map[cube])
-        print(cube.x,cube.y,cube.z)
-        count += 1
-    print(hex_map[Cube(0,0,0)])
-    print(hex_map[Cube(0,1,-1)])
-    print(hex_map[Cube(1,0,-1)])
-    print(hex_map[Cube(1,-1,0)])
-    print(hex_map[Cube(0,-1,1)])
-    print(hex_map[Cube(-1,0,1)])
-    print(hex_map[Cube(-1,1,0)])
-
-    print(len(hex_map.map))
-    
-        
-
-    
+    x = HexMap(map_dict={Cube(1, 0, -1): 10})
