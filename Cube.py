@@ -4,16 +4,6 @@ class Cube:
         self.y = y
         self.z = z
 
-    def neighbours(self):
-        return [
-            Cube(self.x, self.y+1, self.z-1),
-            Cube(self.x+1, self.y, self.z-1),
-            Cube(self.x+1, self.y-1, self.z),
-            Cube(self.x, self.y-1, self.z+1),
-            Cube(self.x-1, self.y, self.z+1),
-            Cube(self.x-1, self.y+1, self.z),
-        ]
-
     def __hash__(self):
         return hash(f"{self.x}_{self.y}_{self.z}")
 
@@ -35,4 +25,3 @@ if __name__ == '__main__':
         Cube(1, 2, 4): 'object2'
     }
     print(x[Cube(1, 2, 3)]) # => 'object1'
-    print(Cube(1, 2, 3).neighbours())
