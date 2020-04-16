@@ -20,16 +20,16 @@ class HexMap:
     def import_map(cls, data):
         pass
 
-    def cube_neighbour(self, cube):
-        directions = [
-                    Cube(cube.x, cube.y+1, cube.z-1),
-                    Cube(cube.x+1, cube.y, cube.z-1),                    
-                    Cube(cube.x+1, cube.y-1, cube.z),
-                    Cube(cube.x, cube.y-1, cube.z+1),
-                    Cube(cube.x-1, cube.y, cube.z+1),                   
-                    Cube(cube.x-1, cube.y+1, cube.z)
-                ]
-        return directions
+    def cube_neighbours(self, cube):
+        neighbours = [
+            Cube(cube.x, cube.y+1, cube.z-1),
+            Cube(cube.x+1, cube.y, cube.z-1),                    
+            Cube(cube.x+1, cube.y-1, cube.z),
+            Cube(cube.x, cube.y-1, cube.z+1),
+            Cube(cube.x-1, cube.y, cube.z+1),                   
+            Cube(cube.x-1, cube.y+1, cube.z)
+        ]
+        return neighbours
 
 if __name__ == '__main__':
     hex_map = HexMap()
