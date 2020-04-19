@@ -12,6 +12,12 @@ class MapController:
 class RingGenerator:
     def __init__(self, rings:int):
         self.rings = rings
+        self.length = self._get_length(rings)
+
+    def _get_length(self, ring):
+        if ring == 0:
+            return 1
+        return (ring * 6) + self._get_length(ring - 1)
 
     def generate(self):
         result = [Cube(0, 0, 0)]
