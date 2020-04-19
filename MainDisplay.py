@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+from views import MapView
 
 class MainDisplay:
     def __init__(self, width, height):

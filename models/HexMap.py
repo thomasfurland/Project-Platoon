@@ -1,4 +1,4 @@
-from Cube import Cube 
+from models.Cube import Cube 
 
 class HexMap:
     def __init__(self, map_dict={}):
