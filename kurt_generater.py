@@ -1,3 +1,5 @@
+import numpy as np
+
 from Cube import Cube
 
 class MapController:
@@ -20,10 +22,13 @@ class RingGenerator:
         return (ring * 6) + self._get_length(ring - 1)
 
     def generate(self):
-        result = [Cube(0, 0, 0)]
+        result = np.empty(self.length, dtype=Cube)
+        result[0] = Cube(0, 0, 0)
+        index = 1
         for i in range(1, self.rings + 1):
             for x, y, z in RingIterator(i):
-                result.append(Cube(x, y, z))
+                result[index] = Cube(x, y, z)
+                index += 1
         return result
 
 
