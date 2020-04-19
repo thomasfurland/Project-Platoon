@@ -17,6 +17,9 @@ class Cube:
     def __str__(self):
         return f'{self.x},{self.y},{self.z}'
 
+    def __repr__(self):
+        return f"<Cube {self.x} {self.y} {self.z}>"
+
     @classmethod
     def from_string(cls, x_y_z):
         x, y, z = x_y_z.split('_')
