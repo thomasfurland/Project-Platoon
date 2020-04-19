@@ -16,7 +16,7 @@ class MapGen(HexMap):
                     z = -(x+y)
                     self.map[Cube(x,y,z)] = f'{x},{y},{z}'
             if x % 2 == 1:
-                for y in range(int(y_max - (x+1)/2),int(-y_max - (x+1)/2)-1,-1): #also go left to right
+                for y in range(int(y_max - (x-1)/2),int(-y_max - (x-1)/2)-1,-1): #also go left to right
                     z = -(x+y)
                     self.map[Cube(x,y,z)] = f'{x},{y},{z}'
 
