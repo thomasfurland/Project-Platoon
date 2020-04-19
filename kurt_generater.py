@@ -5,7 +5,7 @@ class MapController:
         self.generator = generator
         self.hex_map = []
 
-    def generate(self):
+    def generate_map(self):
         self.hex_map = self.generator.generate()
 
 
@@ -66,4 +66,4 @@ class RingIterator:
 if __name__ == '__main__':
     xgen = RingGenerator(3)
     xmap = MapController(xgen)
-    xmap.generate()
+    xmap.generate_map()
