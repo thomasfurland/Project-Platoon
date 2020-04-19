@@ -1,5 +1,3 @@
-import numpy as np
-
 from Cube import Cube
 
 class MapController:
@@ -14,21 +12,12 @@ class MapController:
 class RingGenerator:
     def __init__(self, rings:int):
         self.rings = rings
-        self.length = self._get_length(rings)
-
-    def _get_length(self, ring):
-        if ring == 0:
-            return 1
-        return (ring * 6) + self._get_length(ring - 1)
 
     def generate(self):
-        result = np.empty(self.length, dtype=Cube)
-        result[0] = Cube(0, 0, 0)
-        index = 1
+        result = [Cube(0, 0, 0)]
         for i in range(1, self.rings + 1):
             for x, y, z in RingIterator(i):
-                result[index] = Cube(x, y, z)
-                index += 1
+                result.append(Cube(x, y, z))
         return result
 
 
@@ -75,6 +64,6 @@ class RingIterator:
 
 
 if __name__ == '__main__':
-    xgen = RingGenerator(3)
+    xgen = RingGenerator(1000)
     xmap = MapController(xgen)
     xmap.generate_map()
