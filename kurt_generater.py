@@ -67,7 +67,7 @@ class RingIterator:
 
 
 if __name__ == '__main__':
-    xgen = RingGenerator(RingIterator, 1)
+    xgen = RingGenerator(RingIterator, 3)
     xmap = MapController(xgen)
     xmap.generate_map()
     for cube in xmap.hex_map:
