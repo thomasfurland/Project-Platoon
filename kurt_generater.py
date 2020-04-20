@@ -15,8 +15,8 @@ class RingGenerator:
         self.rings = rings
 
     def generate(self):
-        result = [Cube(0, 0, 0)]
-        for i in range(1, self.rings + 1):
+        result = []
+        for i in range(0, self.rings + 1):
             for x, y, z in self.iterator(i):
                 result.append(Cube(x, y, z))
         return result
@@ -51,6 +51,9 @@ class RingIterator:
         return self
 
     def __next__(self):
+        if self.ring == 0 and self.primary < 6:
+            self.primary = 6
+            return (0, 0, 0)
         if self.primary < 6 and self.ring > 0:
             result = self._current()
             self[self.primary % 3] += 1
