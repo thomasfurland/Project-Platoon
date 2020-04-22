@@ -10,13 +10,14 @@ class MapController:
 
 
 class RingGenerator:
-    def __init__(self, rings:int):
+    def __init__(self, iterator, rings:int):
+        self.iterator = iterator
         self.rings = rings
 
     def generate(self):
-        result = [Cube(0, 0, 0)]
-        for i in range(1, self.rings + 1):
-            for x, y, z in RingIterator(i):
+        result = []
+        for i in range(0, self.rings + 1):
+            for x, y, z in self.iterator(i):
                 result.append(Cube(x, y, z))
         return result
 
@@ -24,11 +25,6 @@ class RingGenerator:
 class RingIterator:
     def __init__(self, ring:int):
         self.ring = ring
-        self.x = -ring
-        self.y = ring
-        self.z = 0
-        self.primary = 0 # 0 == x
-        self.secondary = 2 # 2 == z
 
     def __getitem__(self, key):
         if not isinstance(key, int):
@@ -47,9 +43,17 @@ class RingIterator:
         return (self.x, self.y, self.z)
 
     def __iter__(self):
+        self.x = -self.ring
+        self.y = self.ring
+        self.z = 0
+        self.primary = 0 # 0 == x
+        self.secondary = 2 # 2 == z
         return self
 
     def __next__(self):
+        if self.ring == 0 and self.primary < 6:
+            self.primary = 6
+            return (0, 0, 0)
         if self.primary < 6 and self.ring > 0:
             result = self._current()
             self[self.primary % 3] += 1
@@ -60,10 +64,11 @@ class RingIterator:
                 self.primary += 2
             return result
         raise StopIteration()
-        
 
 
 if __name__ == '__main__':
-    xgen = RingGenerator(3)
+    xgen = RingGenerator(RingIterator, 3)
     xmap = MapController(xgen)
     xmap.generate_map()
+    for cube in xmap.hex_map:
+        print(repr(cube))
