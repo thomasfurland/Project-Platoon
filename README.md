@@ -30,8 +30,8 @@ python3 main.py
 
 Apr.23, 2020 Dev Meeting
 * Planned the next steps moving forward with making the game map.
- * Merge to and clean up main branch
- * Write code in view module to display map
- * Add Generation class to control module
- * Handle Tile Clicking logic in control module
- * Add players to models module for hex capture mario party style game
+  * Merge to and clean up main branch
+  * Write code in view module to display map
+  * Add Generation class to control module
+  * Handle Tile Clicking logic in control module
+  * Add players to models module for hex capture mario party style game
