@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+from controls.MapControl import MapControl
 
 class MainDisplay:
     def __init__(self, width, height):
@@ -12,15 +13,21 @@ class MainDisplay:
         while True:
             for event in pygame.event.get():
                 self.handle_event(event)
-            self.render_objects()
+            self.update_objects()
 
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
 
-    def render_objects(self):
+    def update_objects(self):
+
+        game_map = MapControl(self.background)
+        game_map.draw_map()
+        
+        #overlay old bg with new bg
         self.display.blit(self.background, (0,0))
+        #update the display
         pygame.display.flip()
 
     def set_bg_colour(self, r, g, b):
