@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from controls.MapControl import MapControl
+from models.models import Player
 
 class MainDisplay:
     def __init__(self, width, height):
