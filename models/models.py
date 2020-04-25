@@ -33,6 +33,3 @@ class Player(Base):
    
 
 Base.metadata.create_all(engine)
-
-a = Player(name="Viktor", position="Richmond")
-a.create()
