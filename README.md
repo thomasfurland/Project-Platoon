@@ -23,7 +23,26 @@ Apr.11, 2020 First Zoom Meeting
     * Fixed Size
     * Various Land and Sea Blocks
 
+# Requirements
+ * Install all pip requirements (Do this once):
+```bash
+$ pip install -r requirements.txt
+```
+ * Open up the pipenv environment:
+```bash
+$ pipenv shell
+```
+ * Install all requirements in the pipenv (Do this once):
+```bash
+$ pipenv install
+```
+ * To exit the pipenv into your main terminal use:
+```bash
+$ exit
+```
+
 # Run
+From pipenv use this command to run the game:
 ```bash
 python3 main.py
 ```
@@ -36,5 +55,3 @@ Apr.23, 2020 Dev Meeting
   * Handle Tile Clicking logic in control module
   * Add players to models module for hex capture mario party style game
 
-
-Viktor made this
