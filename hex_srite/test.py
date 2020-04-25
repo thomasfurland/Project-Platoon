@@ -9,7 +9,8 @@ from pygame import (
     key,
     QUIT, 
     K_UP, 
-    K_DOWN
+    K_DOWN,
+    SRCALPHA
 )
 
 class Tile(Sprite):
@@ -21,7 +22,7 @@ class Tile(Sprite):
         height_q = height // 4
         width_q = width // 4
 
-        self.image = Surface((width, height))
+        self.image = Surface((width, height), SRCALPHA)
 
         self.rect = draw.polygon(self.image, color, (
             (0, height_q), (width_q*2, 0), (width, height_q),
