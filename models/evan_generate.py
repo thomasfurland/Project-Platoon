@@ -1,6 +1,6 @@
 import math as m
-from Cube import Cube
-from HexMap import HexMap
+from models.Cube import Cube
+from models.HexMap import HexMap
 #Note that both map length and width must be odd numbers
 
 class MapGen(HexMap):

@@ -1,14 +1,14 @@
 import pygame
 from pygame.locals import *
+from views.HexTileView import HexTileView
 
 class MapView:
-    def __init__(self, surface, map_model):
+    def __init__(self, surface, map_model, size=100):
         self.surface = surface
         self.map = map_model
+        self.size = size
 
     def draw(self):
-        shift = 0
-        for value in self.map.map.values():
-            tile = pygame.Rect(50*shift, 50*shift, 50, 50)
-            pygame.draw.rect(self.surface, value["color"], tile)
-            shift += 1
+        for cube, info in self.map.map.items():
+            tile = HexTileView(self.size, cube, info)
+            self.surface.blit(tile.image, tile.position)

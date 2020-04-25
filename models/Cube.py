@@ -5,6 +5,8 @@ class Cube:
         self.x = x
         self.y = y
         self.z = z
+        #even-row offset
+        self.offset_x, self.offset_y = self.cube_to_offset(x, z) 
 
     def __hash__(self):
         return hash(f"{self.x}_{self.y}_{self.z}")
@@ -25,7 +27,10 @@ class Cube:
         x, y, z = x_y_z.split('_')
         return cls(int(x), int(y), int(z))
 
-    
+    def cube_to_offset(self, x, z):
+        offset_x = x + (z + (abs(z) % 2))/ 2
+        offset_y = z
+        return int(offset_x), int(offset_y)
 
 if __name__ == '__main__':
     x = {
@@ -33,3 +38,5 @@ if __name__ == '__main__':
         Cube(1, 3, -4): 'object2'
     }
     print(x[Cube(1, 2, -3)]) # => 'object1'
+    cube = Cube(0,0,0)
+    print(cube.offset_x, cube.offset_y)

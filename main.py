@@ -37,7 +37,7 @@ class MainDisplay:
         pygame.display.set_caption(title)
 
 if __name__ == '__main__':
-    GAME = MainDisplay(640, 480)
+    GAME = MainDisplay(1000, 500)
     GAME.set_title("Map Gen Testing")
     GAME.set_bg_colour(250, 250, 250) #white
     GAME.run()

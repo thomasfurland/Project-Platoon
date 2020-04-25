@@ -1,14 +1,20 @@
 from models.HexMap import HexMap
 from models.Cube import Cube
 from views.MapView import MapView
+from models.evan_generate import MapGen
 
 class MapControl:
     def __init__(self, surface):
         self.surface = surface
-        self.map_model = self.create_map()
+        self.map_model = self.create_map_evan()
         
-    def create_map(self):
-        origin_cube = Cube(0, 0, 0)
+    def create_map_evan(self):
+        genner = MapGen()
+        genner.generator(11,15)
+        return genner
+
+    def create_map_thomas(self):
+        origin_cube = Cube(0, -3, 3)
         hex_map = HexMap() 
         cubes = hex_map.cube_neighbour(origin_cube)
         cubes.append(origin_cube)
