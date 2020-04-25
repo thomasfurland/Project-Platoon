@@ -35,3 +35,6 @@ Apr.23, 2020 Dev Meeting
   * Add Generation class to control module
   * Handle Tile Clicking logic in control module
   * Add players to models module for hex capture mario party style game
+
+
+Viktor made this
