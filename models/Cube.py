@@ -30,7 +30,7 @@ class Cube:
     def cube_to_offset(self, x, z):
         offset_x = x + (z + (abs(z) % 2))/ 2
         offset_y = z
-        return int(offset_x), int(offset_y)
+        return round(offset_x), round(offset_y)
 
 if __name__ == '__main__':
     x = {

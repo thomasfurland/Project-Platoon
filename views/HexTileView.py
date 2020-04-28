@@ -10,15 +10,14 @@ from pygame import (
 class HexTileView(Sprite):
     def __init__(self, size, cube, data):
         super().__init__()
-        self.width, self.height = size*0.5*(3**0.5), size
+        self.width, self.height = int(size*0.5*(3**0.5)), size
         self.center_w, self.center_h = self.width*0.5, self.height*0.5
 
         self.cube = cube
         self.data = data
         self.image = Surface((self.width, self.height), SRCALPHA)
-        self.rect = None 
+        self.rect = self.draw_hexagon()
         self.position = self.calculate_position()
-        self.draw_hexagon()
 
     def draw_hexagon(self):
         hexagon_corners = self.calculate_corners()

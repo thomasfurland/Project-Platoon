@@ -14,7 +14,7 @@ class MapControl:
         return genner
 
     def create_map_thomas(self):
-        origin_cube = Cube(0, -3, 3)
+        origin_cube = Cube(0, 0, 0)
         hex_map = HexMap() 
         cubes = hex_map.cube_neighbour(origin_cube)
         cubes.append(origin_cube)
@@ -22,6 +22,7 @@ class MapControl:
         for cube in cubes:
             hex_map[cube] = {"color": (0, 0, 25*shift)}
             shift += 1
+        print([(cube, cube.offset_x, cube.offset_y) for cube in cubes])
         return hex_map
 
     def draw_map(self):
