@@ -14,7 +14,7 @@ class MapControl:
         return genner
 
     def create_map_thomas(self):
-        origin_cube = Cube(0, -3, 3)
+        origin_cube = Cube(0, -2, 2)
         hex_map = HexMap() 
         cubes = hex_map.cube_neighbour(origin_cube)
         cubes.append(origin_cube)
