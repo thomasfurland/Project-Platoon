@@ -19,7 +19,7 @@ class HexTileView(Sprite):
         self.image = Surface((self.width, self.height), SRCALPHA)
         self.rect = self.draw_hexagon() 
         self.position = self.calculate_position()
-        self.text = self.write_text(self.position)
+        self.text = self.write_text((cube.x,cube.y,cube.z))
 
     def draw_hexagon(self):
         hexagon_corners = self.calculate_corners()
@@ -30,7 +30,7 @@ class HexTileView(Sprite):
         text = f.render(str(text),True,(255,255,255))
         self.image.blit(text, (10,50))
         return text
-        _
+        
     def calculate_position(self):
         x = self.cube.offset_x
         y = self.cube.offset_y
