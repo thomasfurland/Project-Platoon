@@ -1,5 +1,5 @@
 from pygame import MOUSEBUTTONDOWN, draw
-from controls.event_controller import Event
+from controls.events.event_controller import Event
 
 import random
 

@@ -1,6 +1,6 @@
 from pygame import event, QUIT
 
-from controls.event_controller import EventController
+from controls.events import EventController
 
 
 class EventHandler:
