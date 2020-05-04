@@ -1,4 +1,5 @@
 from pygame.sprite import Sprite
+import math as m
 from pygame import (
     Surface,
     init,
@@ -8,11 +9,12 @@ from pygame import (
 )
 
 class HexTileView(Sprite):
-    def __init__(self, size, cube, data):
+    def __init__(self, size, cube, data, top_left_tile):
         super().__init__()
-        self.width, self.height = int(size*0.5*(3**0.5)), size
+        self.width, self.height, self.r = m.ceil(size*0.5*(3**0.5)), size, size/2  #r is distance from center of hex to a corner
         self.center_w, self.center_h = self.width*0.5, self.height*0.5
 
+        self.top_left_tile = top_left_tile      #again, used to reference each tile's position on the board relative to the corner
         self.cube = cube
         self.data = data
         self.image = Surface((self.width, self.height), SRCALPHA)
@@ -21,16 +23,14 @@ class HexTileView(Sprite):
 
     def draw_hexagon(self):
         hexagon_corners = self.calculate_corners()
-        self.rect = draw.polygon(self.image, (0,0,0), hexagon_corners)
+        self.rect = draw.polygon(self.image, self.cube.colour, hexagon_corners)
 
     def calculate_position(self):
-        x = self.cube.offset_x
-        y = self.cube.offset_y
-        if y % 2:
-            pos = (int(self.width*x + self.width*0.5), int(self.height*0.75*y))
-        else:
-            pos = (int(self.width*x), int(self.height*0.75*y))
-        return pos
+        w0 = (self.r)*(3**0.5)*(0.5)*(self.cube.x-self.top_left_tile.x-self.cube.y+self.top_left_tile.y+1)
+        h0 = -(self.r)*(3)*(0.5)*(self.cube.x-self.top_left_tile.x+self.cube.y-self.top_left_tile.y-1)
+        w = m.ceil(w0 - self.r*(3**0.5)/2)
+        h = m.ceil(h0 - self.r)
+        return w,h
 
     def calculate_corners(self):
 

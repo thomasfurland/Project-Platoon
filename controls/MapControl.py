@@ -7,7 +7,7 @@ class MapControl:
     def __init__(self, surface):
         self.surface = surface
         self.map_model = self.create_map_evan()
-        
+
     def create_map_evan(self):
         genner = MapGen()
         genner.generator(11,15)

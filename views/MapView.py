@@ -9,6 +9,7 @@ class MapView:
         self.size = size
 
     def draw(self):
+        top_left_tile = list(self.map.map.keys())[0]        #get the tile that was generated first (top left tile) for reference
         for cube, info in self.map.map.items():
-            tile = HexTileView(self.size, cube, info)
+            tile = HexTileView(self.size, cube, info, top_left_tile)
             self.surface.blit(tile.image, tile.position)

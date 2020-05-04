@@ -1,3 +1,5 @@
+from random import randint
+
 class Cube:
     def __init__(self, x, y, z):
         if x + y + z != 0:
@@ -5,6 +7,7 @@ class Cube:
         self.x = x
         self.y = y
         self.z = z
+        self.colour = self.get_colour()
         #even-row offset
         self.offset_x, self.offset_y = self.cube_to_offset(x, z) 
 
@@ -21,6 +24,12 @@ class Cube:
 
     def __repr__(self):
         return f"<Cube {self.x} {self.y} {self.z}>"
+
+    def get_colour(self):
+        r = randint(0,255)
+        g = randint(0,255)
+        b = randint(0,255)
+        return (r,g,b)
 
     @classmethod
     def from_string(cls, x_y_z):
