@@ -1,5 +1,5 @@
 from window import Window
-from event_handler import EventHandler
+from controls.event_handler import EventHandler
 from game_loop import GameLoop
 
 
