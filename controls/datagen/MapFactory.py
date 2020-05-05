@@ -6,7 +6,6 @@ class MapFactory:
         MapFactory._instances[cls._unique_key] = cls()
 
     def __call__(cls, unique_key):
-        print(unique_key)
         if unique_key in MapFactory._instances:
             return MapFactory._instances[unique_key]
         else:

@@ -8,7 +8,7 @@ class NewEvanMap(Event):
     def __call__(self, **kwargs):
         if kwargs["key"] == K_e:
             hexmap = MapFactory()("Evan")
-            hexmap.generate(5,7)
+            hexmap.generate(11,15)
 
 class NewThomasMap(Event):
     type_ = KEYDOWN
@@ -16,5 +16,5 @@ class NewThomasMap(Event):
     def __call__(self, **kwargs):
         if kwargs["key"] == K_t:
             hexmap = MapFactory()("Thomas")
-            hexmap.generate(1,1)
+            hexmap.generate(7,7)
             
