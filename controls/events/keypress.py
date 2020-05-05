@@ -1,24 +1,20 @@
 from pygame import KEYDOWN, K_e, K_t
 from controls.events.event_controller import Event
-from controls.Generate import GenerateMap
-from models.Hexmap import HexMap
+from controls.datagen import MapFactory
 
 class NewEvanMap(Event):
     type_ = KEYDOWN
 
     def __call__(self, **kwargs):
-        if kwargs["key"] == K_n:
-            gamemap = HexMap()
-            gamemap.map = GenerateMap("Evan")
-
+        if kwargs["key"] == K_e:
+            hexmap = MapFactory()("Evan")
+            hexmap.generate(5,7)
 
 class NewThomasMap(Event):
     type_ = KEYDOWN
 
     def __call__(self, **kwargs):
-        if kwargs["key"] == K_n:
-            gamemap = HexMap()
-            gamemap.map = GenerateMap("Thomas")
-
-
+        if kwargs["key"] == K_t:
+            hexmap = MapFactory()("Thomas")
+            hexmap.generate(1,1)
             

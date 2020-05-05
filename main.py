@@ -14,5 +14,5 @@ for frame in GameLoop(window, fps):
     event_handler.probe()
     #renderer.render_visuals()
     Map = HexMap()
-    print(len(Map.map))
+    print([(key, value)for key, value in Map.map.items()])
     frame.end()

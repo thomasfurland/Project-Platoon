@@ -12,7 +12,6 @@ def random_color():
 
 class ChangeLeft(Event):
     type_ = MOUSEBUTTONDOWN
-
     def __call__(self, **kwargs):
         window = self._controller.window
         if kwargs['pos'][0] <= window._surface.get_rect().centerx:

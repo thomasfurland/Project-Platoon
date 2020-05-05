@@ -3,6 +3,7 @@ class Event:
     _types = {}
 
     def __init_subclass__(cls):
+        print("subclassing events")
         super().__init_subclass__()
         if cls.type_ in Event._types:
             Event._types[cls.type_].append(cls())
