@@ -1,6 +1,7 @@
 from pygame import KEYDOWN, K_e, K_t
 from controls.events.event_controller import Event
-
+from controls.Generate import GenerateMap
+from models.Hexmap import HexMap
 
 class NewEvanMap(Event):
     type_ = KEYDOWN
