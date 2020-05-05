@@ -1,6 +1,7 @@
 from models.Cube import Cube 
+from models.Singleton import Singleton
 
-class HexMap:
+class HexMap(metaclass=Singleton):
     def __init__(self, map_dict={}):
         for k in map_dict.keys():
             if not isinstance(k, Cube):
